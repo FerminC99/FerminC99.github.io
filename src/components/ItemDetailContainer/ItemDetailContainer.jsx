@@ -14,7 +14,9 @@ const ItemDetailContainer = () => {
         .then ((productDb)=>{
             const data = {id:productDb.id, ...productDb.data()}
             setProduct(data)
-        })
+        }).catch((error) => {
+          console.log(error)
+        });
     }
     useEffect(() =>{
       getProduct()

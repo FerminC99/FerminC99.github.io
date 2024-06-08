@@ -6,12 +6,15 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CartProvider } from './context/CartContext.jsx';
 import Cart from './components/Cart/Cart.jsx';
 import Checkout from "./components/Checkout/Checkout";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css' ;
 function App() {
   
   return (
      <BrowserRouter>
     <CartProvider> 
       <NavBar />
+      <ToastContainer/>
       <Routes>
       <Route path="/" element={ <ItemListContainer saludo = "Bienvenidos a Zona Outlet"/>} />
       <Route path="/category/:idCategory" element={ <ItemListContainer  /> } />

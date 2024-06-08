@@ -1,8 +1,9 @@
-# React + Vite
+# Ecommerce Zona Outlet
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+##### `Fermin Corredera`
 
-Currently, two official plugins are available:
+## Descripcion
+Bienvenido a Zona Outlet, tu destino exclusivo para encontrar las mejores ofertas en remeras deportivas de marcas de renombre como Adidas, Puma y Nike. Sumérgete en nuestra selección de productos, donde la calidad y el estilo se combinan a precios irresistibles.En este Ecommerce usted agregar productos al carrito y generar una orden para obtener los productos solicitados.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Dependencias
+##### `Firebase``Yup``Toastify``React``ReactDom``ReactRouterDom``ReactIcons`
