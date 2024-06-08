@@ -25,7 +25,7 @@ setOcultarCount(true);
         <p className="text-detail">{product.description}</p>
         <p className="text-detail">Precio: ${product.price}</p>
         {ocultarCount ? (
-          <Link to="/cart">Ir al carrito</Link>
+          <Link className="button" to="/cart">Ir al carrito</Link>
         ) : (
           <ItemCount stock={product.stock} addProduct={addProduct} />
         )}
