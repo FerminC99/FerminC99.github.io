@@ -1,13 +1,26 @@
-import React from 'react'
+
+import React from 'react';
 import { RiShoppingCartFill } from "react-icons/ri";
 import { useContext } from 'react';
 import { CartContext } from '../../context/CartContext';
+import { Link } from 'react-router-dom';
+import "./cardwidget.css"
+
 const CardWidget = () => {
-  const { cart  } = useContext (CartContext)
+  const { totalQuantity } = useContext(CartContext);
+
+  let quantity = totalQuantity()
+  
   return (
-    <><div><RiShoppingCartFill color="brown" size={40} /></div>
-    <p> 1 </p></>
-  )
+    <Link to="/cart" className={ quantity >= 1 ? "cartwidget cart-green" : "cartwidget" }>
+      <RiShoppingCartFill size={40} />
+      <p className="number">{ quantity >=1 && quantity } </p>
+    </Link>
+  );
 }
 
-export default CardWidget
+export default CardWidget;
+
+
+
+
