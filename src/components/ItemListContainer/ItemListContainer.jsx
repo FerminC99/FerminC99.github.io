@@ -7,11 +7,15 @@ import db from "../../db/db.js";
 
 const ItemListContainer = () => {
   const [products, setProducts] = useState([]);
+  
   const [loading, setLoading] = useState(false);
+  
   const { idCategory } = useParams();
 
   const getProducts = useCallback(async () => {
+    
     setLoading(true);
+    
     try {
       const productsRef = collection(db, "products");
       const productsDb = await getDocs(productsRef);
@@ -20,35 +24,35 @@ const ItemListContainer = () => {
         ...product.data(),
       }));
       setProducts(data);
-    } catch (error) {
+             } catch (error) {
       console.error("Error fetching products:", error);
-    } finally {
+            } finally {
       setLoading(false);
     }
   }, []);
 
   const getProductsByCategory = useCallback(async () => {
     setLoading(true);
-    try {
-      const productsRef = collection(db, "products");
-      const q = query(productsRef, where("category", "==", idCategory));
-      const productsDb = await getDocs(q);
-      const data = productsDb.docs.map((product) => ({
-        id: product.id,
-        ...product.data(),
+     try {
+          const productsRef = collection(db, "products");
+          const q = query(productsRef, where("category", "==", idCategory));
+              const productsDb = await getDocs(q);
+            const data = productsDb.docs.map((product) => ({
+              id: product.id,
+              ...product.data(),
       }));
       setProducts(data);
-    } catch (error) {
+            } catch (error) {
       console.error("Error fetching products by category:", error);
-    } finally {
+              } finally {
       setLoading(false);
     }
   }, [idCategory]);
 
-  useEffect(() => {
-    if (idCategory) {
+    useEffect(() => {
+        if (idCategory) {
       getProductsByCategory();
-    } else {
+               } else {
       getProducts();
     }
   }, [idCategory, getProducts, getProductsByCategory]);
